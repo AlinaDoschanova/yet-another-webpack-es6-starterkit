@@ -24,6 +24,10 @@ module.exports = (options) => {
           NODE_ENV: JSON.stringify(options.isProduction ? 'production' : 'development')
         }
       }),
+      new Webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      }),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         minify: options.isProduction && {
